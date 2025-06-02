@@ -7,7 +7,7 @@ This project is a machine learning-based spam email classifier that predicts whe
 ## 📂 Project Structure
 
 - `Spam Mail Prediction Using ML.ipynb`: Jupyter Notebook containing the entire pipeline — from preprocessing and vectorization to model training and prediction.
-- `mail_data.csv`: Dataset containing labeled email messages.   
+- `mail_data.csv`: Dataset containing labeled email messages.  
 
 ---
 
