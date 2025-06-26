@@ -14,6 +14,8 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 model = pickle.load(open(os.path.join(BASE_DIR, 'spam_model.pkl'), 'rb'))
 vectorizer = pickle.load(open(os.path.join(BASE_DIR, 'vectorizer.pkl'), 'rb'))
 
+
+@login_required(login_url='login')
 def home(request):
     return render(request, 'spam_app/home.html')
 
