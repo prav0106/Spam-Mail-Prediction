@@ -18,6 +18,10 @@ vectorizer_path = os.path.join(BASE_DIR, 'vectorizer.pkl')
 model = pickle.load(open(model_path, 'rb'))
 vectorizer = pickle.load(open(vectorizer_path, 'rb'))
 
+print("✅ ML Model Loaded:", model)
+print("✅ Vectorizer Loaded:", vectorizer)
+
+
 
 
 @login_required(login_url='login')
