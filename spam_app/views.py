@@ -11,8 +11,13 @@ from django.contrib.auth.decorators import login_required
 
 # Load ML Model and Vectorizer
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-model = pickle.load(open(os.path.join(BASE_DIR, 'spam_model.pkl'), 'rb'))
-vectorizer = pickle.load(open(os.path.join(BASE_DIR, 'vectorizer.pkl'), 'rb'))
+
+model_path = os.path.join(BASE_DIR, 'spam_model.pkl')
+vectorizer_path = os.path.join(BASE_DIR, 'vectorizer.pkl')
+
+model = pickle.load(open(model_path, 'rb'))
+vectorizer = pickle.load(open(vectorizer_path, 'rb'))
+
 
 
 @login_required(login_url='login')
@@ -22,19 +27,29 @@ def home(request):
 @login_required
 def predict(request):
     if request.method == 'POST':
-        message = request.POST.get('message')
-        transformed = vectorizer.transform([message])
-        result = model.predict(transformed)[0]
-        prediction = "SPAM 🚫" if result == 1 else "NOT SPAM ✅"
+        try:
+            message = request.POST.get('message')
+            transformed = vectorizer.transform([message])
+            result = model.predict(transformed)[0]
+            prediction = "SPAM 🚫" if result == 1 else "NOT SPAM ✅"
 
-        # Save to DB
-        PredictionRecord.objects.create(
-            user=request.user,
-            message=message,
-            prediction=prediction
-        )
+            # Save to DB
+            PredictionRecord.objects.create(
+                user=request.user,
+                message=message,
+                prediction=prediction
+            )
 
-        return render(request, 'spam_app/result.html', {'message': message, 'result': prediction})
+            return render(request, 'spam_app/result.html', {
+                'message': message,
+                'result': prediction
+            })
+        except Exception as e:
+            return render(request, 'spam_app/result.html', {
+                'message': 'Something went wrong!',
+                'result': f'Error: {str(e)}'
+            })
+
 
 
 
