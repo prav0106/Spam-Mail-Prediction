@@ -129,3 +129,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 CSRF_TRUSTED_ORIGINS = [
     'https://spam-mail-prediction.up.railway.app',
 ]
+
+
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
