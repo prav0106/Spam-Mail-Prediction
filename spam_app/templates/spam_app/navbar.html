@@ -3,6 +3,7 @@
     <a class="navbar-brand" href="/">📩 Spam Detector</a>
     <div class="d-flex">
       {% if user.is_authenticated %}
+        <span class="text-white me-3">👤 {{ user.get_full_name|default:user.username }}</span>
         <a href="{% url 'history' %}" class="btn btn-outline-light me-2">History</a>
         <a href="{% url 'logout' %}" class="btn btn-light">Logout</a>
       {% else %}

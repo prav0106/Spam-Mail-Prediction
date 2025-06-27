@@ -40,13 +40,29 @@ def predict(request):
 
 def register_view(request):
     if request.method == 'POST':
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
         email = request.POST['email']
         password = request.POST['password']
+        confirm_password = request.POST['confirm_password']
+
+        if password != confirm_password:
+            return render(request, 'spam_app/register.html', {'error': 'Passwords do not match'})
+
         if User.objects.filter(username=email).exists():
             return render(request, 'spam_app/register.html', {'error': 'User already exists'})
-        user = User.objects.create_user(username=email, email=email, password=password)
+
+        user = User.objects.create_user(
+            username=email,
+            email=email,
+            password=password,
+            first_name=first_name,
+            last_name=last_name
+        )
         return redirect('login')
+        
     return render(request, 'spam_app/register.html')
+
 
 def login_view(request):
     if request.method == 'POST':

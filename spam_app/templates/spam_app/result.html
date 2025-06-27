@@ -1,38 +1,8 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-    <title>Prediction Result</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body class="bg-light">
-
-<div class="container mt-5">
-    <div class="card shadow-lg rounded-4">
-        <div class="card-body text-center">
-            <h2 class="mb-4">📬 Prediction Result</h2>
-            <p><strong>📨 Message:</strong></p>
-            <div class="alert alert-secondary p-3">{{ message }}</div>
-
-            {% if result == "SPAM 🚫" %}
-                <div class="alert alert-danger fw-bold fs-5">⚠️ This message is SPAM</div>
-            {% else %}
-                <div class="alert alert-success fw-bold fs-5">✅ This message is NOT SPAM</div>
-            {% endif %}
-
-            <a href="/" class="btn btn-outline-primary mt-3">Check Another Message</a>
-        </div>
-    </div>
-</div>
-
-</body>
-</html> -->
-
-
-
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title>Prediction Result</title>
     <link rel="stylesheet" href="{% static 'style.css' %}">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -43,12 +13,21 @@
 
 <div class="container mt-5">
   <div class="card p-4 text-center">
-    <h3>Prediction Result:</h3>
-    <p class="alert alert-secondary">{{ message }}</p>
-    <p class="fw-bold {% if result == 'SPAM 🚫' %}text-danger{% else %}text-success{% endif %}">
-      {{ result }}
-    </p>
-    <a href="{% url 'home' %}" class="btn btn-outline-primary">Try Another</a>
+    <h2 class="mb-4">📬 Your Prediction Result</h2>
+
+    <div class="mb-3">
+      <label class="fw-semibold">Message Analyzed:</label>
+      <div class="alert alert-secondary text-wrap">{{ message }}</div>
+    </div>
+
+    <div class="mb-4">
+      <label class="fw-semibold">Result:</label>
+      <div class="fs-4 {% if result == 'SPAM 🚫' %}text-danger{% else %}text-success{% endif %}">
+        {{ result }}
+      </div>
+    </div>
+
+    <a href="{% url 'home' %}" class="btn btn-primary w-100">🔄 Analyze Another Message</a>
   </div>
 </div>
 

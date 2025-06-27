@@ -16,8 +16,13 @@
     <form method="POST">
       {% csrf_token %}
       {% if error %}<div class="alert alert-danger">{{ error }}</div>{% endif %}
+      
+      <input name="first_name" type="text" class="form-control mb-3" placeholder="First Name" required>
+      <input name="last_name" type="text" class="form-control mb-3" placeholder="Last Name" required>
       <input name="email" type="email" class="form-control mb-3" placeholder="Email" required>
       <input name="password" type="password" class="form-control mb-3" placeholder="Password" required>
+      <input name="confirm_password" type="password" class="form-control mb-3" placeholder="Confirm Password" required>
+      
       <button type="submit" class="btn btn-success w-100">Create Account</button>
     </form>
     <div class="mt-3 text-center">

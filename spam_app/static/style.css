@@ -1,17 +1,72 @@
+/* Final Combined CSS */
 body {
-    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 0;
 }
-
+.container {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+}
 .card {
-    border-radius: 1rem;
-    box-shadow: 0 0.5rem 1.2rem rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 30px;
 }
-
-.navbar-brand {
-    font-weight: bold;
-    font-size: 1.3rem;
+form input, textarea {
+    height: auto;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    padding: 10px;
 }
-
-.btn {
-    border-radius: 0.6rem;
+form button {
+    font-size: 18px;
+    height: 45px;
+    border-radius: 8px;
+}
+.alert {
+    font-size: 14px;
+}
+.navbar {
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+h2 {
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+}
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+.text-center {
+    text-align: center;
+}
+.mt-5 {
+    margin-top: 3rem !important;
+}
+.mb-3 {
+    margin-bottom: 1rem !important;
+}
+.me-2 {
+    margin-right: 0.5rem !important;
+}
+.w-100 {
+    width: 100% !important;
+}
+footer {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    color: #888;
 }
