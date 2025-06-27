@@ -1,59 +1,91 @@
-# 📧 Spam Mail Prediction Using Machine Learning
+# 📧 Spam Mail Prediction Using Machine Learning and Django
 
-This project is a machine learning-based spam email classifier that predicts whether a given email is **spam** or **not spam**. It uses natural language processing (NLP) techniques and machine learning models to analyze and classify email content.
-
----
-
-## 📂 Project Structure
-
-- `Spam Mail Prediction Using ML.ipynb`: Jupyter Notebook containing the entire pipeline — from preprocessing and vectorization to model training and prediction.  
-- `mail_data.csv`: Dataset containing labeled email messages.
+This project is a full-stack **Spam Email Classifier Web App** built using **Django** and a **Logistic Regression ML model**. It allows users to **register, log in**, input email content, and get real-time **spam predictions**, with personal prediction history.
 
 ---
 
-## 🚀 Features
+## 📁 Project Overview
 
-- Email preprocessing (cleaning, tokenization, stemming)
-- TF-IDF vectorization for converting text to numerical form
-- Logistic Regression model for prediction
-- Performance evaluation using accuracy, confusion matrix, and classification report
-
----
-
-## 📊 Dataset Description
-
-The dataset used (`mail_data.csv`) has the following columns:
-
-- `Category`: The label (either `spam` or `ham`)
-- `Message`: The email content
+- Built with Django and deployed on **Railway**
+- Uses **TF-IDF Vectorizer** and **Logistic Regression**
+- User authentication (register, login, logout)
+- Predictions and history saved per user
+- Clean and responsive UI with Bootstrap 5
 
 ---
 
-## 🧠 ML Techniques Used
+## 🧠 Machine Learning Model
 
-- **Text Preprocessing**
-  - Lowercasing
-  - Removing special characters
-  - Removing stopwords
-  - Tokenization and Stemming
-- **Feature Extraction**
-  - TF-IDF Vectorizer
-- **Model**
-  - Logistic Regression
+The ML model was trained using `mail_data.csv` with the following steps:
 
----
+- **Preprocessing**: Lowercasing, stopword removal, tokenization
+- **Feature Extraction**: TF-IDF Vectorizer
+- **Model**: Logistic Regression
+- **Evaluation**:
+  - Training Accuracy: ~97%
+  - Testing Accuracy: ~96%
 
-## 📈 Evaluation Metrics
+Final files used in the app:
 
-- Accuracy Score
-- Confusion Matrix
-- Classification Report (Precision, Recall, F1-score)
+- `spam_model.pkl`: Saved ML model  
+- `vectorizer.pkl`: Saved TF-IDF Vectorizer
 
 ---
 
-## 🛠️ Installation & Requirements
+## 🗂️ Key Files
 
-Install the required libraries using:
+- `Spam Mail Prediction Using ML.ipynb`: Jupyter Notebook for model training  
+- `mail_data.csv`: Dataset with labeled emails  
+- `spam_model.pkl`, `vectorizer.pkl`: Trained model & vectorizer  
+- `spam_app/`: Django app folder (views, templates, static files)  
+- `spam_detector/`: Django project config (settings, URLs)  
+- `templates/spam_app/`: HTML templates  
+- `static/style.css`: CSS styling  
+
+---
+
+## ⚙️ Installation (Local)
+
+1. Clone the repository:
 
 ```bash
-pip install numpy pandas scikit-learn matplotlib nltk
+git clone https://github.com/prav0106/Spam-Mail-Prediction.git
+cd Spam-Mail-Prediction
+```
+
+2. Create a virtual environment:
+
+```bash
+python -m venv venv
+venv\Scripts\activate  # On Windows
+```
+
+3. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+4. Run migrations and start the server:
+
+```bash
+python manage.py migrate
+python manage.py runserver
+```
+
+App will run at `http://127.0.0.1:8000/`
+
+---
+
+## 🌍 Live Deployment
+
+🔗 Deployed on Railway:  
+[https://spam-mail-prediction-production.up.railway.app/](https://spam-mail-prediction-production.up.railway.app/)
+
+(*Note: Deployment might throw error if `.pkl` files aren't loaded properly on Railway — works fine locally.*)
+
+---
+
+## 📌 Note
+
+This project is for academic use and personal learning. Not intended for production-scale use.
