@@ -26,7 +26,11 @@ SECRET_KEY = 'django-insecure-ek9z&h=h&ctqu1kyzgvw6c!glo&$h!sb8*tfz9l^-p+9)g8c@q
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['spam-mail-prediction-production.up.railway.app']
+CSRF_TRUSTED_ORIGINS = [
+    "https://spam-mail-prediction-production.up.railway.app"
+]
+
 
 
 # Application definition
@@ -126,9 +130,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CSRF_TRUSTED_ORIGINS = [
-    'https://spam-mail-prediction.up.railway.app',
-]
+
 
 
 SESSION_COOKIE_SECURE = True
