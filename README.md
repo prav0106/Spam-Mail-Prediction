@@ -14,7 +14,7 @@ This project is a full-stack **Spam Email Classifier Web App** built using **Dja
 
 ---
 
-## 🧠 Machine Learning Model
+## 🧠 Machine Learning Model 
 
 The ML model was trained using `mail_data.csv` with the following steps:
 
