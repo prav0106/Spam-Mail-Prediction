@@ -4,7 +4,7 @@ This project is a full-stack **Spam Email Classifier Web App** built using **Dja
 
 ---   
    
-## 📁 Project Overview  
+## 📁 Project Overview     
 
 - Built with Django and deployed on **Railway**
 - Uses **TF-IDF Vectorizer** and **Logistic Regression**
