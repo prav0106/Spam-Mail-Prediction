@@ -1,5 +1,5 @@
 # 📧 Spam Mail Prediction Using Machine Learning and Django
-
+ 
 This project is a full-stack **Spam Email Classifier Web App** built using **Django** and a **Logistic Regression ML model**. It allows users to **register, log in**, input email content, and get real-time **spam predictions**, with personal prediction history.
    
 ---     
